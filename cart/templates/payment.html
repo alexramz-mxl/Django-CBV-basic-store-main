@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static '/payment.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="container">
+    <div class="cart">
+        <h2>My Cart:</h2>
+        <div class="cart-items">
+            {% for item in cart_items %}
+            <div class="cart-item">
+                <span class="item-name">{{ product.name }}</span>
+                <span class="item-price">${{ item.product.price }}</span>
+                <div class="item-controls">
+                    <button class="control-btn" onclick="changeQuantity('{{ item.product.id }}', -1)">-</button>
+                    <input type="number" class="quantity" value="{{ item.quantity }}" min="1" max="{{ item.product.stock }}" readonly>
+                    <button class="control-btn" onclick="changeQuantity('{{ item.product.id }}', 1)">+</button>
+                    <button class="remove-btn" onclick="removeItem('{{ item.product.id }}')">Remove</button>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="summary">
+        <h2>Summary:</h2>
+        <div class="total">
+            <span>Total:</span>
+            <span id="total-price">${{ total_price }}</span>
+        </div>
+        <h3>Payment Methods</h3>
+        <div class="payment-methods">
+            <button class="payment-btn">Credit Card <i class="fa-regular fa-credit-card"></i></button>
+            <button class="payment-btn">Debit Card <i class="fa-solid fa-credit-card"></i></button>
+            <button class="payment-btn">Paypal <i class="fa-brands fa-paypal"></i></button>
+        </div>
+    </div>
+</div>
+
+<script>
+    function changeQuantity(productId, change) {
+        var input = document.querySelector(`input[data-product-id="${productId}"]`);
+        var currentQuantity = parseInt(input.value);
+        var newQuantity = Math.max(1, currentQuantity + change);
+
+        if (newQuantity !== currentQuantity) {
+            input.value = newQuantity;
+            console.log(`Updated product ${productId} to quantity ${newQuantity}`);
+        }
+    }
+    function removeItem(productId) {
+        console.log(`Removing product ${productId}`);
+            }
+</script>
+
+{% endblock %}

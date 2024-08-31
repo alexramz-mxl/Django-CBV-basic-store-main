@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Memberships{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'memberships.css' %}">
+</head>
+<body>
+
+    <h1>Membership Cards</h1>
+    <div class="card-container">
+        {% for card in cards %}
+        <div class="membership-card {{ card.membership_type|lower }}">
+            <img src="{{ card.profile_photo.url }}" alt="{{ card.first_name }} {{ card.last_name }}'s photo" class="profile-photo">
+            <h2>{{ card.first_name }} {{ card.last_name }}</h2>
+            <p>Membership Number: {{ card.membership_number }}</p>
+            <p>Type: {{ card.membership_type }}</p>
+            <a href="{% url 'membership_card_detail' card.pk %}">View Details</a>
+        </div>
+        {% endfor %}
+    </div>
+
+    <footer>
+        <small>&copy; 2024 <b>SDGKU</b> - All Rights Reserved.</small>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,147 @@
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+h1{
+    text-align: center;
+    margin: 20px 0;
+    font-family: "Lexend", sans-serif;
+    color: white;
+    padding: 10px;
+    background-color: black;
+}
+
+h2 {
+    text-align: center;
+    margin: 20px 0;
+    font-family: "Lexend", sans-serif;
+ }
+
+.container {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.slider {
+    position: relative;
+    max-width: 100%;
+    margin: 10px auto;
+    overflow: hidden;
+}
+
+.slides {
+    display: flex;
+    transition: transform 0.8s ease-in-out;
+    width: 100%;
+}
+
+.slide {
+    min-width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.slide a {
+    display: block;
+    width: 100%;
+}
+
+.slide img {
+    width: 40%;
+    height: auto;
+    display: block;
+}
+
+.slider-controls {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+    z-index: 10;
+}
+
+.slider-button {
+    background-color: rgba(0, 0, 0, .2);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.slider a {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+}
+
+.banner-text {
+    background: linear-gradient(50deg, #f68f3b, #e83e8c,#da362c, #814dc0, #3b76ca);
+    background-size: 400% 400%;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    font-size: 1.2em;
+    font-weight: bold;
+    position: relative;
+    z-index: 10;
+    margin-top: 20px;
+    border-radius: 10px;
+}
+
+.card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 4px;
+    margin: 2px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.card img {
+    width: auto;
+    height: auto;
+    border-radius: 8px;
+}
+
+.card h3 {
+    margin: 10px 0;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.video-section {
+    position: relative;
+    width: 100%;
+    max-width: 1760px;
+    margin: 2px auto;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.video-section video {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: black;
+}

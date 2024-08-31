@@ -1,0 +1,125 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Home page{% endblock %}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
+    {% block css %}
+    <link rel="stylesheet" type="text/css" href="{% static 'media/css/home.css' %}">
+    {% endblock %}
+</head>
+<body>
+    <h1>Gamer's Favorites.<span style="color:rgb(178, 176, 176)">Best Sellers</span></h1>
+    <main class="container">
+        <div class="slider">
+            <div class="slides">
+
+                <div class="slide">
+                    <img src="{% static 'media/images/products/dronemavic2.png' %}"> 
+                </div>
+                
+                <div class="slide">
+                    <img src="{% static 'media/images/products/lenovo-legionGo.png' %}">
+                </div>
+                
+                <div class="slide">
+                    <img src="{% static 'media/images/products/ssd-casergb.png' %}">
+                </div>
+                
+                <div class="slide">
+                    <img src="{% static 'media/images/products/msi-claw.png' %}">
+                </div>
+                
+                <div class="slide">
+                    <img src="{% static 'media/images/products/meta-quest-.png' %}">
+                </div>
+
+                <div class="slide">
+                    <img src="{% static 'media/images/products/valve-steam.png' %}">
+                </div>
+
+                <div class="slide">
+                    <img src="{% static 'media/images/products/sony-vr2.png' %}">
+                </div>
+            </div>
+            
+            <div class="slider-controls">
+                <button class="slider-button" onclick="prevSlide()">&#10094;</button>
+                <button class="slider-button" onclick="nextSlide()">&#10095;</button>
+            </div>
+        </div>
+
+        <div class="banner-text">
+            Save $25 with your Golden Membership when you spend $250 In Store Or Online & Pick up in Store*
+        </div>
+
+        <div class="video-section">
+            <video autoplay muted loop width="100%" controls>
+                <source src="{% static 'media/videos/GTA-VI.mp4' %}" type="video/mp4">
+            </video>
+        </div>
+
+        <div class="card">
+            <img src="{% static 'media/images/products/bannerassasins.png' %}" alt="Free Shipping">
+        </div>
+
+        <div class="grid-container">
+
+            <div class="card">
+                <img src="{% static 'media/images/logo/msi-log.png' %}">
+            </div>
+            <div class="card">
+                <img src="{% static 'media/images/logo/nintendo-online.png' %}">
+            </div>
+            <div class="card">
+                <img src="{% static 'media/images/logo/ps-log.png' %}">
+            </div>
+            <div class="card">
+                <img src="{% static 'media/images/logo/nvidia.png' %}">
+            </div>
+            <div class="card">
+                <img src="{% static 'media/images/logo/xbox.png' %}">
+            </div>
+        </div>
+
+        <!--<h2>Information about videogames</h2>
+        <div class="cards-container">
+            <div class="card">
+                <img src="#" alt="Console 1">
+                <h3>Console 1</h3>
+                <p>Information about Console 1.</p>
+            </div>
+            <div class="card">
+                <img src="{% static 'images/game1.jpg' %}" alt="Game 1">
+                <h3>Game 1</h3>
+                <p>Information about Game 1.</p>
+            </div>
+        </div>-->
+
+        <div class="card">
+            <img src="{% static 'media/images/products/NBA.png' %}" alt="Free Shipping">
+        </div>
+
+        <h2>Membership Benefits & Free Shipping</h2>
+        <div class="cards-container">
+            <div class="card">
+                <img src="{% static 'images/membership.jpg' %}" alt="Membership Benefits">
+                <h3>Membership Benefits</h3>
+                <p>Take advantage of the benefits you have with your memberships
+                </p>
+            </div>
+        </div>
+    </main>
+
+    <script src="{% static 'js/home.js' %}"></script>
+</body>
+</html>
+
+    {% endblock %}
+    
