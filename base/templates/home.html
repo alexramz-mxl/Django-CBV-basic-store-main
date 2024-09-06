@@ -9,13 +9,13 @@
     <title>{% block title %}Home page{% endblock %}</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">    
     {% block css %}
     <link rel="stylesheet" type="text/css" href="{% static 'media/css/home.css' %}">
     {% endblock %}
 </head>
 <body>
-    <h1>Gamer's Favorites.<span style="color:rgb(178, 176, 176)">Best Sellers</span></h1>
+    <h1>Gamer's Favorites.<span style="color:rgb(113, 113, 113)">Best Sellers</span></h1>
     <main class="container">
         <div class="slider">
             <div class="slides">
@@ -61,12 +61,12 @@
 
         <div class="video-section">
             <video autoplay muted loop width="100%" controls>
-                <source src="{% static 'media/videos/GTA-VI.mp4' %}" type="video/mp4">
+                <source src="{% static 'media/videos/Phantom-Blade-Zero.mp4' %}" type="video/mp4">
             </video>
         </div>
 
         <div class="card">
-            <img src="{% static 'media/images/products/bannerassasins.png' %}" alt="Free Shipping">
+            <img src="{% static 'media/images/products/bannerassasins.png' %}">
         </div>
 
         <div class="grid-container">
@@ -88,28 +88,14 @@
             </div>
         </div>
 
-        <!--<h2>Information about videogames</h2>
-        <div class="cards-container">
-            <div class="card">
-                <img src="#" alt="Console 1">
-                <h3>Console 1</h3>
-                <p>Information about Console 1.</p>
-            </div>
-            <div class="card">
-                <img src="{% static 'images/game1.jpg' %}" alt="Game 1">
-                <h3>Game 1</h3>
-                <p>Information about Game 1.</p>
-            </div>
-        </div>-->
-
         <div class="card">
-            <img src="{% static 'media/images/products/NBA.png' %}" alt="Free Shipping">
+            <img src="{% static 'media/images/products/NBA.png' %}">
         </div>
 
-        <h2>Membership Benefits & Free Shipping</h2>
+        <h2 class="h2-gold">Membership Benefits & Free Shipping</h2>
         <div class="cards-container">
             <div class="card">
-                <img src="{% static 'images/membership.jpg' %}" alt="Membership Benefits">
+                <img class="membership-img" src="{% static 'media/images/logo/golden-card.png' %}" alt="Membership Benefits">
                 <h3>Membership Benefits</h3>
                 <p>Take advantage of the benefits you have with your memberships
                 </p>

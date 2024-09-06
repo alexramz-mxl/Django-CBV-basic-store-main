@@ -12,8 +12,23 @@
 
 <p><a href="{% url 'password_reset' %}">Forgot Password<i class="fa-solid fa-circle-question"></i></a></p>
 
-<footer>
-    <small>&copy; 2024 <b>SDGKU</b> - All Rights Reserved.</small>
-</footer>
-
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const form = document.getElementById('loginForm');
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            Swal.fire({
+            icon: 'success',
+            title: 'Login Successful',
+            text: 'You have logged in successfully!',
+            confirmButtonText: 'OK'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                form.submit();
+            }
+        });
+    });
+});
+</script>
 {% endblock %}

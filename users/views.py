@@ -31,7 +31,7 @@ def contact_us(request):
     if request.method == 'POST':
         form = ContactForm(request.POST)
         if form.is_valid():
-            # Send email
+
             send_mail(
                 subject=form.cleaned_data['subject'],
                 message=form.cleaned_data['details'],

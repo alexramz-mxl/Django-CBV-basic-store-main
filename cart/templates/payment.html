@@ -2,58 +2,58 @@
 {% load static %}
 
 {% block css %}
-    <link rel="stylesheet" href="{% static '/payment.css' %}">
+    <link rel="stylesheet" href="{% static 'css/payment.css' %}">
+{% endblock %}
+
+{% block js %}
+    <link rel="stylesheet" href="{% static 'js/payment.js' %}">
 {% endblock %}
 
 {% block content %}
 
 <div class="container">
     <div class="cart">
-        <h2>My Cart:</h2>
+        <h2><i class="fa-solid fa-boxes-packing"></i> Ship To Home:</h2>
         <div class="cart-items">
             {% for item in cart_items %}
             <div class="cart-item">
-                <span class="item-name">{{ product.name }}</span>
-                <span class="item-price">${{ item.product.price }}</span>
+                <span class="item-name">{{ item.product.name }}</span>
+                <span class="item-price">${{ item.product.price|floatformat:2 }}</span>
                 <div class="item-controls">
-                    <button class="control-btn" onclick="changeQuantity('{{ item.product.id }}', -1)">-</button>
-                    <input type="number" class="quantity" value="{{ item.quantity }}" min="1" max="{{ item.product.stock }}" readonly>
-                    <button class="control-btn" onclick="changeQuantity('{{ item.product.id }}', 1)">+</button>
-                    <button class="remove-btn" onclick="removeItem('{{ item.product.id }}')">Remove</button>
+                    <button class="control-btn decrement" data-product-id="{{ item.product.id }}">-</button>
+                    <input type="number" class="quantity" data-product-id="{{ item.product.id }}" value="{{ item.quantity }}" min="1" max="{{ item.product.stock }}" readonly>
+                    <button class="control-btn increment" data-product-id="{{ item.product.id }}">+</button>
+                    <button class="remove-btn" data-product-id="{{ item.product.id }}">Remove</button>                
                 </div>
             </div>
             {% endfor %}
         </div>
     </div>
     <div class="summary">
-        <h2>Summary:</h2>
+        <h2>ORDER SUMMARY:</h2>
         <div class="total">
-            <span>Total:</span>
+            <span>Subtotal:</span>
             <span id="total-price">${{ total_price }}</span>
         </div>
-        <h3>Payment Methods</h3>
+        <div class="shipping">
+            <span>Shipping & Handling:</span>
+            <span><i class="fa-solid fa-truck-arrow-right"></i></i> FREE  <i class="fa-brands fa-ups"> <i class="fa-brands fa-fedex"></i> <i class="fa-brands fa-dhl"></i></i></span>
+        </div>
+        <div class="tax">
+            <span>Estimated Tax (7%):</span>
+            <span id="estimated-tax">${{ estimated_tax|floatformat:2 }}</span>
+        </div>
+        <div class="grand-total">
+            <span>Grand Total:</span>
+            <span id="grand_total">${{ grand_total|floatformat:2 }}</span>
+        </div>        
+        <h3>Payment Methods:</h3>
         <div class="payment-methods">
-            <button class="payment-btn">Credit Card <i class="fa-regular fa-credit-card"></i></button>
-            <button class="payment-btn">Debit Card <i class="fa-solid fa-credit-card"></i></button>
+            <button class="payment-btn">Credit Card <i class="fa-brands fa-cc-amex"></i></i></button>
+            <button class="payment-btn">Debit Card <i class="fa-brands fa-cc-visa"></i></i></button>
             <button class="payment-btn">Paypal <i class="fa-brands fa-paypal"></i></button>
         </div>
     </div>
 </div>
-
-<script>
-    function changeQuantity(productId, change) {
-        var input = document.querySelector(`input[data-product-id="${productId}"]`);
-        var currentQuantity = parseInt(input.value);
-        var newQuantity = Math.max(1, currentQuantity + change);
-
-        if (newQuantity !== currentQuantity) {
-            input.value = newQuantity;
-            console.log(`Updated product ${productId} to quantity ${newQuantity}`);
-        }
-    }
-    function removeItem(productId) {
-        console.log(`Removing product ${productId}`);
-            }
-</script>
 
 {% endblock %}

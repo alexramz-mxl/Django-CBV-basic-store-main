@@ -129,12 +129,15 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 #DEFAULT_FROM_EMAIL = env('DEFAULT_FROM_EMAIL')
 #ADMIN_EMAIL = env('DEFAULT_FROM_EMAIL')
 
-
-EMAIL_HOST = 'smtp.sendgrid.net'
-EMAIL_HOST_USER = 'apikey'  # this is exactly the value 'apikey'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
-EMAIL_USE_TLS = False
-EMAIL_USE_SSL = False
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'alexramz.mxl@gmail.com'
+EMAIL_HOST_PASSWORD = 'hfyh dykj qtft cifd'
+CONTACT_EMAIL = 'alexramz.p@gmail.com'
+
+
 
 
 # Internationalization

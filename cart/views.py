@@ -6,6 +6,7 @@ from django.urls import reverse
 from django.views import View
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import redirect, render
+from decimal import Decimal
 
 
 
@@ -100,7 +101,7 @@ class RemoveFromCartView(LoginRequiredMixin, View):
 def payment_view(request):
     cart = request.session.get('cart', {})
     cart_items = []
-    total_price = 0
+    total_price = Decimal('0.00')
 
     for product_id, quantity in cart.items():
         try:
@@ -114,10 +115,17 @@ def payment_view(request):
             total_price += item_total
         except Product.DoesNotExist:
             continue
-
+        
+    tax_rate = Decimal('0.07')
+    estimated_tax = total_price * tax_rate
+    grand_total = total_price + estimated_tax
+    
+    
     context = {
         'cart_items': cart_items,
         'total_price': total_price,
+        'estimated_tax': estimated_tax,
+        'grand_total': grand_total,
     }
 
     return render(request, 'payment.html', context)
