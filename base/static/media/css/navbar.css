@@ -1,0 +1,10 @@
+.custom-dropdown-menu {
+    right: 0;
+    left: auto;
+    margin-top: 0.5rem;
+    transform: translateX(0);
+}
+
+.cart-icon {
+    color: #02588a; 
+}

@@ -1,4 +1,4 @@
-footer {
+.footer {
     text-align: center;
     padding: 10px;
     background-color: black;
@@ -6,3 +6,49 @@ footer {
     width: 100%;
     bottom: 0;
 }
+
+.footer-content {
+    position: relative;
+    padding-bottom: 30px;
+}
+
+.social-media {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.social-media a {
+    margin: 0 20px; 
+    font-size: 24px;
+    text-decoration: none;
+    transition: transform 0.3s, opacity 0.3s;
+}
+
+.social-media a:hover {
+    transform: scale(1.1);
+    opacity: 0.8;
+}
+
+.social-media i {
+    vertical-align: middle;
+}
+
+.social-media img {
+    width: 24px;
+    height: 24px; 
+}
+
+.footer-logo {
+    margin-bottom: 10px; 
+}
+
+.footer-logo img {
+    max-width: 100px;
+    height: auto;
+} 
+
+small {
+    color: white;
+}
+

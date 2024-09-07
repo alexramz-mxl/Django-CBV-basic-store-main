@@ -1,10 +1,15 @@
 .product-card {
     position: relative;
     border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid white;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, .1);
+    margin-bottom: 20px;
 }
 
 .product-card .product-image {
-    max-width: 100%;
+    width: 100%;
+    height: auto;
     max-height: 200px;
     object-fit:scale-down;
     display: block;
@@ -12,7 +17,7 @@
 }
 
 .product-card .image-container {
-    position: cover;
+    position: relative;
 }
 
 .product-card .like-button {
@@ -25,11 +30,11 @@
     max-width: 100%;
     height: auto;
     border-radius: 15px;
-    box-shadow: 0px 0px 15px rgba(0, 0, 0, .2);
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, .1);
 }
 
 .product-details h2 {
-    font-weight: 250;
+    font-weight: 400;
     margin-bottom: 15px;
     font-family: "DM Sans", sans-serif;
 }
@@ -41,7 +46,7 @@
 
 .product-details .lead {
     margin-bottom: 20px;
-    font-size: 10px;
+    font-size: 14px;
     text-align: justify;
 }
 
@@ -55,6 +60,7 @@
     border-color: #000000;
     color: black;
     border-radius: 10px;
+    padding: 10px 20px;
 }
 
 
@@ -74,6 +80,7 @@ h2 {
     text-align: center;
     padding: 10px;
     background-color: black;
+    color: white;
 }
 
 .btn-rounded {
@@ -84,4 +91,5 @@ footer {
     text-align: center;
     padding: 10px;
     background-color: black;
+    color: white;
 }

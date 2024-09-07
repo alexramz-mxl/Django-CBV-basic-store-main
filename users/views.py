@@ -25,7 +25,7 @@ def membership_card_list(request):
 
 def membership_card_detail(request, pk):
     card = get_object_or_404(MembershipCard, pk=pk)
-    return render(request, 'membership_card_detail', {'card': card})
+    return render(request, 'membership_card_detail.html', {'card': card})
 
 def contact_us(request):
     if request.method == 'POST':

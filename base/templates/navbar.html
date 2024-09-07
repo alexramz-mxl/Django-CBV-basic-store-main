@@ -1,10 +1,17 @@
 {% load static %}
+{%block css %}
+    <link rel="stylesheet" href="{% static '/media/css/navbar.css' %}">
+{% endblock %}
 <nav class="navbar navbar-expand-lg">
     <div class="container-fluid">
         <a class="navbar-brand" href="{% url 'home' %}  ">CoderStore</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
             aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" class="bi bi-list" width="24" height="24">
+                <path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/>
+            </svg>
+    
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
@@ -14,19 +21,24 @@
                 <li class="nav-item px-3">
                     <a class="nav-link px-3" href="{% url 'product_list' %}">Catalog</a>
                 </li>
-                <li class="nav-item dropdown">
+                <!--<li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle px-3" href="#" id="membershipDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Members
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="membershipDropdown">
                         <li><a class="dropdown-item" href="#">Golden Membership <i class="fa-solid fa-star"></i></a></li>
-                        <!--<li><a class="dropdown-item" href="#">Silver Membership <i class="fa-solid fa-star-half"></i></a></li>-->
+                        <li><a class="dropdown-item" href="#">Silver Membership <i class="fa-solid fa-star-half"></i></a></li>
                         <li><a class="dropdown-item" href="{% url 'login' %}">Not a Memeber yet? Sign up!</a></li>
                     </ul>
-                </li>
+                </li>-->
                     <li class="nav-item">
                         <a class="nav-link px-3" href="{% url 'contact_us' %}">Contact</a>
                     </li>
+                    {% if user.is_authenticated %}
+                    <li class="nav-item">
+                        <a class="nav-link px-3" href="{% url 'favorite_products' %}">Your favorites</a>
+                    </li>
+                    {% endif %}
                 </li>
             </ul>
                 <form method="get" action="{% url 'search_products' %}">
@@ -37,21 +49,21 @@
             {% if user.is_authenticated %}
                 <form class="d-flex" role="search" action="{% url 'cart_detail' %}" method="get">
                     <button class="btn btn-outline-light" type="submit">
-                        <i class="fa-solid fa-cart-shopping"></i>
+                        <i class="fa-solid fa-cart-shopping cart-icon"></i>
                     </button>
                 </form>
             {% else %}
                 <form class="d-flex" role="search" action="{% url 'login' %}" method="get">
                     <button class="btn btn-outline-light" type="submit">
-                        <i class="fa-solid fa-cart-shopping"></i>
+                        <i class="fa-solid fa-cart-shopping cart-icon"></i>
                     </button>
                 </form>
             {% endif %}
             <div class="dropdown">
                 <button class="btn dropdown-toggle" type="button" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                    <i class="fa-regular fa-id-badge"></i>
+                    <i class="fa-regular fa-id-badge cart-icon"></i>
                 </button>
-                <ul class="dropdown-menu" aria-labelledby="userDropdown">
+                <ul class="dropdown-menu custom-dropdown-menu" aria-labelledby="userDropdown">
                     {% if user.is_authenticated %}
                     <li>
                         <form action="{% url 'logout' %}" method="post">

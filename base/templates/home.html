@@ -15,7 +15,7 @@
     {% endblock %}
 </head>
 <body>
-    <h1>Gamer's Favorites.<span style="color:rgb(113, 113, 113)">Best Sellers</span></h1>
+    <h1>Gamer's Favorites.<span style="color:rgb(113, 113, 113)"> Best Sellers</span></h1>
     <main class="container">
         <div class="slider">
             <div class="slides">
@@ -72,40 +72,43 @@
         <div class="grid-container">
 
             <div class="card">
-                <img src="{% static 'media/images/logo/msi-log.png' %}">
+                <a href="https://rewards.msi.com/">
+                    <img src="{% static 'media/images/logo/msi-log.png' %}">
+                </a>
             </div>
             <div class="card">
-                <img src="{% static 'media/images/logo/nintendo-online.png' %}">
+                <a href="https://www.nintendo.com/us/switch/online/nintendo-switch-online/#nso-compare-table">
+                    <img src="{% static 'media/images/logo/nintendo-online.png' %}">
+                </a>
             </div>
             <div class="card">
-                <img src="{% static 'media/images/logo/ps-log.png' %}">
+                <a href="https://www.playstation.com/en-us/ps-plus/#subscriptions">
+                    <img src="{% static 'media/images/logo/ps-log.png' %}">
+                </a>
             </div>
             <div class="card">
-                <img src="{% static 'media/images/logo/nvidia.png' %}">
+                <a href="https://www.nvidia.com/en-us/geforce-now/memberships/">
+                    <img src="{% static 'media/images/logo/nvidia.png' %}">
+                </a>    
             </div>
             <div class="card">
-                <img src="{% static 'media/images/logo/xbox.png' %}">
+                <a href="https://www.xbox.com/en-US/live/gold">
+                    <img src="{% static 'media/images/logo/xbox.png' %}">
+                </a>
             </div>
         </div>
 
         <div class="card">
-            <img src="{% static 'media/images/products/NBA.png' %}">
+            <a href="http://127.0.0.1:8000/products/34/">
+                <img src="{% static 'media/images/products/NBA.png' %}">
+            </a>
         </div>
 
         <h2 class="h2-gold">Membership Benefits & Free Shipping</h2>
-        <div class="cards-container">
-            <div class="card">
-                <img class="membership-img" src="{% static 'media/images/logo/golden-card.png' %}" alt="Membership Benefits">
-                <h3>Membership Benefits</h3>
-                <p>Take advantage of the benefits you have with your memberships
-                </p>
-            </div>
-        </div>
-    </main>
 
+    </main>
     <script src="{% static 'js/home.js' %}"></script>
 </body>
 </html>
-
-    {% endblock %}
+{% endblock %}
     

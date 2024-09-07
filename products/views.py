@@ -4,7 +4,8 @@ from django.http import HttpResponseRedirect
 from django.urls import reverse
 from django.views import View
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.shortcuts import get_object_or_404, render
+from django.contrib.auth.decorators import login_required
+from django.shortcuts import get_object_or_404, render, redirect
 from .forms import ProductSearchForm
 
 
@@ -72,6 +73,20 @@ class LikeProductView(LoginRequiredMixin, View):
             return_url = reverse('product_list')
 
         return HttpResponseRedirect(return_url) 
+
+@login_required
+def toggle_favorite(request, product_id):
+    product = get_object_or_404(Product, id=product_id)
+    if request.user in product.liked_by.all():
+        product.liked_by.remove(request.user)
+    else:
+        product.liked_by.add(request.user)
+    return redirect(request.META.get('HTTP_REFERER', 'product_list'))
+
+@login_required
+def favorite_products(request):
+    products = request.user.liked_products.all()
+    return render(request, 'favorite_products.html', {'products': products})
     
 def search_products(request):
     form = ProductSearchForm(request.GET or None)

@@ -19,5 +19,6 @@ let slideIndex = 0;
         }
 
         setInterval(nextSlide, 5000);
+        
 
         

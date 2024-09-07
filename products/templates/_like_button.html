@@ -1,7 +1,16 @@
-<a href="{% url 'like_product' product.id %}">
-    {% if product.liked %}
-    <i class="fa-solid fa-heart"></i>
-    {% else %}
-    <i class="fa-regular fa-heart"></i>
-    {% endif %}
-</a>
+{% if user.is_authenticated %}
+    <form method="post" action="{% url 'toggle_favorite' product.id %}">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-light">
+            {% if user in product.liked_by.all %}
+                <i class="fa-solid fa-heart"></i>
+            {% else %}
+                <i class="fa-regular fa-heart"></i>
+            {% endif %}
+        </button>
+    </form>
+{% else %}
+    <a href="{% url 'login' %}" class="btn btn-light">
+        <i class="fa-regular fa-heart"></i>
+    </a>
+{% endif %}

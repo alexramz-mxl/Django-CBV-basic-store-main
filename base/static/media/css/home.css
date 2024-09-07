@@ -22,7 +22,11 @@ h2 {
  }
 
 .h2-gold {
-    color: gold;
+    text-align: center;
+    font-size: 2em;
+    background: linear-gradient(90deg, #ffd700, #ffcc00);
+
+    margin-bottom: 20px;
 }
 
 .container {
@@ -52,14 +56,15 @@ h2 {
 }
 
 .slide a {
-    display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 100%;
 }
 
 .slide img {
-    width: 40%;
+    max-width: 35%;
     height: auto;
-    display: block;
 }
 
 .slider-controls {
@@ -103,10 +108,31 @@ h2 {
 .card {
     border: 1px solid #ddd;
     border-radius: 8px;
-    padding: 4px;
-    margin: 2px;
+    padding: 10px;
+    margin: 10px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
+    text-decoration: none;
+}
+
+.card-ms {
+    display: block;
+    text-align: center;
+    color: inherit;
+}
+
+.card-content {
+    padding: 5px;
+}
+
+.card-content h3 {
+    font-size: 1em;
+    margin: 10px 0;
+}
+
+.card-content p {
+    font-size: 0.8em;
+    color: #333;
 }
 
 .card:hover {
@@ -114,13 +140,20 @@ h2 {
 }
 
 .card img {
-    width: auto;
+    max-width: 100%;
     height: auto;
     border-radius: 8px;
 }
 
 .card h3 {
     margin: 10px 0;
+}
+
+.cards-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
 }
 
 .grid-container {
@@ -147,7 +180,10 @@ h2 {
 }
 
 .membership-img {
-    width: 30%;
+    max-width: 80%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 footer {
